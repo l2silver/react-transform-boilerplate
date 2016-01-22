@@ -7,7 +7,9 @@
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "mocha --compiler js:babel-core/register --require test/test_helper.js src/**/*spec.js",
+    "test-watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -48,7 +50,11 @@
     "rimraf": "^2.4.3",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "chai-as-promised": "~5.2.0",
+    "chai-immutable": "~1.5.3",
+    "chai": "~3.4.1",
+    "mocha": "~2.3.4"
   },
   "dependencies": {
     "react": "^0.14.3",
