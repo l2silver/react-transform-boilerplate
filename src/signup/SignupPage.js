@@ -3,7 +3,7 @@ import SignupBox from './SignupBox';
 export default class extends Component {
 	render(){
 		return(
-				<section id='signupPage'>
+				<section className='SignupPage'>
 					<SignupBox />
 				</section>
 			)

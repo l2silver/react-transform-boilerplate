@@ -1,11 +1,11 @@
 import React from 'react';
 import {expect} from 'chai';
-import SignupPage from './../SignupPage';
+import SignupBox from './../SignupBox';
 import {renderIntoDocument, scryRenderedDOMComponentsWithClass} from 'react-addons-test-utils';
-describe('SignupPage', ()=>{
+describe('SignupBox', ()=>{
 	it('has SignupForm', ()=>{
 		const component = renderIntoDocument(
-	      <SignupPage />
+	      <SignupBox />
 	    );
 	    const SignupForm = scryRenderedDOMComponentsWithClass(component, 'SignupForm');
 	    expect(SignupForm.length).to.equal(1);
