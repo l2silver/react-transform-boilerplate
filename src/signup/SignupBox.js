@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SignupForm from './SignupForm';
 
-export class SignupBox extends Component {
+export default class extends Component {
 	render(){
 		return(
 				<div className='signupBox'>

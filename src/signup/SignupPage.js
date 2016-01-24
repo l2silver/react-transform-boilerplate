@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import SignupBox from './SignupBox';
-export default class SignupPage extends Component {
+export default class extends Component {
 	render(){
 		return(
 				<section id='signupPage'>
-					<SignUpBox />
+					<SignupBox />
 				</section>
 			)
 	}
