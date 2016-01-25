@@ -2,7 +2,7 @@ import reducer from './../signup_reducer.js';
 import {expect} from 'chai';
 import {Map, fromJS} from 'immutable';
 
-describe('signup', ()=>{
+describe('signup reducer', ()=>{
 	describe('input change', ()=>{
 		it('change user attribute', ()=>{
 			const state = Map();
