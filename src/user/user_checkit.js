@@ -1,4 +1,4 @@
-import checkit from 'checkit';
+import Checkit from 'checkit';
 
 var checkit = new Checkit({
   email: ['required','email'],
@@ -7,11 +7,8 @@ var checkit = new Checkit({
 });
 
 export function validateNewUser(user){
-	checkit.run(user).then(function(validated) {
-	  console.log(validated);
-	}).catch(Checkit.Error, function(err) {
-	  console.log(err.toJSON());
+	return checkit.run(user).catch((error)=>{
+		return Promise.reject(error.errors);
 	});
-	Promise.resolve();	
 }
 
