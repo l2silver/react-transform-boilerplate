@@ -7,6 +7,8 @@ var checkit = new Checkit({
 });
 
 export function validateNewUser(user){
-	return checkit.run(user);
+	return checkit.run(user).catch((error)=>{
+		return Promise.reject(error.errors);
+	});
 }
 
