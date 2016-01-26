@@ -11,8 +11,8 @@ switch(process.env.ENV_VARIABLE){
 
 }
 
-export default function(method, body){
-	return fetch(address, { 
+export default function(method, body, suffix = ''){
+	return fetch(address+'/'+suffix, { 
 							method, 
 							body
 								})
