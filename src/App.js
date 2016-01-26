@@ -6,8 +6,8 @@ export class App extends Component {
   render() {
     return (
        <Router history={browserHistory}>
-        <Route path="/" component={Signup}>
-        <Route path="*" component={Signup}/>
+        <Route path="/" component={SignupPage}>
+        <Route path="*" component={SignupPage}/>
         </Route>
       </Router>
     );
