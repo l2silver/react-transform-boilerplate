@@ -7,7 +7,7 @@ fetch.Promise = Promise;
 function createUser(user){
   var form = new FormData();
   form.append(user);
-  fetch('POST', form)
+  fetch('POST', form, 'user')
     .then(function(json) {
       console.log(json);
     });
