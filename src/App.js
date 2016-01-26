@@ -7,11 +7,21 @@ export class App extends Component {
   render() {
     return (
        <Router history={browserHistory}>
-        <Route path='/' component={SignupPage}>
-        <Route path='/assembly' component={AssemblyIndexPage} />
-        <Route path='*' component={SignupPage}/>
+        <Route path='/' component={Layout}>
+        	<Route path='signup' component={SignupPage} />
+	        <Route path='assembly' component={AssemblyIndexPage} />
         </Route>
       </Router>
+    );
+  }
+}
+
+export class Layout extends Component {
+  render() {
+    return (
+       <div>
+       		{this.props.children}
+       </div>
     );
   }
 }
