@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
-import {uri} from './config';
+import config from './config';
+const uri = config.uri;
 
 
 function address(){
