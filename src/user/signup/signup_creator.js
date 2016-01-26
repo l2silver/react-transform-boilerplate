@@ -1,23 +1,14 @@
 import {validateNewUser} from './../user_checkit.js';
-import fetch from 'node-fetch';
+import fetch from './../../node-fetch';
 import Promise from 'bluebird';
 import FormData from 'form-data';
 fetch.Promise = Promise;
 
-function createUser(){
-  fetch('https://github.com/')
-    .then(function(res) {
-      return res.text();
-    }).then(function(body) {
-      console.log(body);
-    });
-
-  const form = new FormData();
-
-  fetch('http://httpbin.org/post', { method: 'POST', body: form })
-    .then(function(res) {
-      return res.json();
-    }).then(function(json) {
+function createUser(user){
+  var form = new FormData();
+  form.append(user);
+  fetch('POST', form)
+    .then(function(json) {
       console.log(json);
     });
 }
@@ -44,7 +35,7 @@ export function validateUser(user){
 export function changeInput(user){
   return function (dispatch){
    validateNewUser(user).then((user)=>{
-    return createNewUser
+    return createNewUser(user)
    })
    .catch((errors)=>{
 
