@@ -4,7 +4,7 @@ const uri = config.uri;
 
 
 function address(){
-	switch(process.env.ENV_VARIABLE){
+	switch(process.env.NODE_ENV){
 		case 'test':
 			 return uri.test;
 		case 'development':
