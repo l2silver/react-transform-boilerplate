@@ -3,28 +3,23 @@ import fetch from 'node-fetch';
 import Promise from 'bluebird';
 import FormData from 'form-data';
 fetch.Promise = Promise;
- 
-// plain text or html 
- 
-fetch('https://github.com/')
-  .then(function(res) {
-    return res.text();
-  }).then(function(body) {
-    console.log(body);
-  });
-
-const form = new FormData();
-
-fetch('http://httpbin.org/post', { method: 'POST', body: form })
-  .then(function(res) {
-    return res.json();
-  }).then(function(json) {
-    console.log(json);
-  });
- 
 
 function createUser(){
+  fetch('https://github.com/')
+    .then(function(res) {
+      return res.text();
+    }).then(function(body) {
+      console.log(body);
+    });
 
+  const form = new FormData();
+
+  fetch('http://httpbin.org/post', { method: 'POST', body: form })
+    .then(function(res) {
+      return res.json();
+    }).then(function(json) {
+      console.log(json);
+    });
 }
 
 function validUser(user) {
