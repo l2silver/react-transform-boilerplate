@@ -24,20 +24,44 @@ function invalidUser(errors, user) {
   };
 }
 
-export function validateUser(user){
-  return validateNewUser(user)
+function changeUserAttribute(field, value){
+ return {
+    type: 'CHANGE_USER_ATTRIBUTE',
+    field,
+    value
+  }; 
 }
 
-export function changeInput(user){
+export function changeInput(field, value){
   return function (dispatch){
-   validateNewUser(user).then((user)=>{
-    return createUser(user)
-   })
-   .then((user)=>{
-    dispatch(validUser(user));
-   })
-   .catch((errors)=>{
-    dispatch(invalidUser(errors, user));
-   }); 
+    return dispatch(changeUserAttribute(field, value));
   };
-}
+};
+
+export function changedInput(){
+  console.log('insiteChangeInput')
+  return function (dispatch, getState){
+    console.log('getState');
+    console.log(getState());
+    validateNewUser(getState().signup.user).then((user)=>{
+      return createUser(user)
+    })
+    .then((user)=>{
+      dispatch(validUser(user));
+    })
+    .catch((errors)=>{
+      dispatch(invalidUser(errors, user));
+    });
+  };
+};
+
+/*
+->GET STATE
+->CHANGE ATTRIBUTE->SET ACTIVE->(When you leave box)
+->VALIDATE USER
+
+User->attributes
+User->errors
+User->active_input
+User->activated_input
+*/
