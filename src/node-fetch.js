@@ -1,14 +1,15 @@
 import fetch from 'node-fetch';
+import {uri} from './config';
 
 
 function address(){
 	switch(process.env.ENV_VARIABLE){
 		case 'test':
-			 return 'localhost:8888';
+			 return uri.test;
 		case 'development':
-			return 'localhost:8888';
+			return uri.development;
 		case 'production':
-			return '';
+			return uri.production;
 		}
 }
 
