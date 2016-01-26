@@ -1,14 +1,13 @@
 import fetch from 'node-fetch';
 
 
-switch(process.env.ENV_VARIABLE){
-	case 'tets':
-		const address = 'localhost:8888';
+const address = switch(process.env.ENV_VARIABLE){
+	case 'test':
+		 return 'localhost:8888';
 	case 'development':
-		const address = 'localhost:8888';
+		return 'localhost:8888';
 	case 'production':
-		const address = '';
-
+		return '';
 }
 
 export default function(method, body, suffix = ''){
