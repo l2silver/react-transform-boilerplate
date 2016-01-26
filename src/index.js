@@ -4,13 +4,14 @@ import { App } from './App';
 import thunk from 'redux-thunk';
 import {
 	createStore
-	, applyMiddleware} from 'redux';
+	, applyMiddleware
+} from 'redux';
 import reducers from 'reducers.js';
 
-const applyMiddleware(
+const createStoreWithMiddleware = applyMiddleware(
 	thunk
 	)(createStore)
 
-const store = createStore(reducers);
+const store = createStoreWithMiddleware(reducers);
 
 render(<App />, document.getElementById('root'));
