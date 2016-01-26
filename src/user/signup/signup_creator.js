@@ -5,12 +5,8 @@ import FormData from 'form-data';
 fetch.Promise = Promise;
 
 function createUser(user){
-  var form = new FormData();
-  form.append(user);
-  fetch('POST', form, 'user')
-    .then(function(json) {
-      console.log(json);
-    });
+  const form = new FormData({user});
+  return fetch('POST', form, 'user')
 }
 
 function validUser(user) {
@@ -35,10 +31,13 @@ export function validateUser(user){
 export function changeInput(user){
   return function (dispatch){
    validateNewUser(user).then((user)=>{
-    return createNewUser(user)
+    return createUser(user)
+   })
+   .then((user)=>{
+    dispatch(validUser(user));
    })
    .catch((errors)=>{
-
+    dispatch(invalidUser(errors, user));
    }); 
   };
 }
