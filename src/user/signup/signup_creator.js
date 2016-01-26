@@ -66,7 +66,7 @@ store.dispatch(
 // actions and async actions from other action creators,
 // and I can build my control flow with Promises.
 
-function makeSandwichesForEverybody() {
+function changeInput() {
   return function (dispatch, getState) {
     if (!getState().sandwiches.isShopOpen) {
 
