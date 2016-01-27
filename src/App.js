@@ -34,11 +34,7 @@ export class Layout extends Component {
   render() {
     return (
        <div>
-<<<<<<< HEAD
           {this.props.children}
-=======
-       		{this.props.children}
->>>>>>> AssemblyIndexPage
        </div>
     );
   }
