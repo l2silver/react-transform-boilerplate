@@ -3,18 +3,20 @@ import AssembliesTable from './AssembliesTable';
 require('./AssemblyIndexPage.scss')
 
 const assemblies = [{
-	name: 'Assembly 1',
-	category: 'Category 1',
-	visibility: 'All',
-	tests: 10
-},{name: 'Assembly 1',
-	category: 'Category 1',
-	visibility: 'All',
-	tests: 10
-},{name: 'Assembly 1',
-	category: 'Category 1',
-	visibility: 'All',
-	tests: 10
+	1: 'Assembly 1',
+	2: 'Category 1',
+	3: 'All',
+	4: 10
+},{
+	1: 'Assembly 1',
+	2: 'Category 1',
+	3: 'All',
+	4: 10
+},{
+	1: 'Assembly 1',
+	2: 'Category 1',
+	3: 'All',
+	4: 10
 }]
 
 export default class extends Component {

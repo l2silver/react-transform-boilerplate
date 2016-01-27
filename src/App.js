@@ -12,7 +12,7 @@ export class App extends Component {
         <Route path='/' component={Layout}>
         	<Route path='signup' component={SignupPage} />
           <Route path='assemblies/' component={AssemblyPages}>
-            <Route path='all' component={AssemblyIndexPage} />
+            <Route path='index/:categoryId' component={AssemblyIndexPage} />
           </Route>
         </Route>
       </Router>
