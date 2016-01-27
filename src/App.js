@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import SignupPage from './user/signup/SignupPage';
-import AssemblyIndexPage from './assembly/AssemblyIndexPage';
+import AssemblyPages from './assembly/AssemblyPages';
+import AssemblyIndexPage from './assembly/AssemblyIndexPage/AssemblyIndexPage';
 
 export class App extends Component {
   render() {
     return (
        <Router history={browserHistory}>
+
         <Route path='/' component={Layout}>
         	<Route path='signup' component={SignupPage} />
-	        <Route path='assembly' component={AssemblyIndexPage} />
+          <Route path='assemblies/' component={AssemblyPages}>
+            <Route path='all' component={AssemblyIndexPage} />
+          </Route>
         </Route>
       </Router>
     );
