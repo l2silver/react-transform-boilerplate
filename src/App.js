@@ -5,6 +5,8 @@ import AssemblyPages from './assembly/AssemblyPages';
 import AssemblyCategoriesPages from './assembly/categories/AssemblyCategoriesPages';
 import AssemblyCategoriesCreatePage from './assembly/categories/AssemblyCategoriesCreatePage/AssemblyCategoriesCreatePage';
 import AssemblyCategoriesIndexPage from './assembly/categories/AssemblyCategoriesIndexPage/AssemblyCategoriesIndexPage';
+import AssemblyCreatePage from './assembly/AssemblyCreatePage/AssemblyCreatePage';
+
 
 export class App extends Component {
   render() {
@@ -18,6 +20,7 @@ export class App extends Component {
               <Route path='create' component={AssemblyCategoriesCreatePage} />
               <Route path='index' component={AssemblyCategoriesIndexPage} />
             </Route>
+            <Route path='create' component={AssemblyCreatePage} />
           </Route>
         </Route>
       </Router>
