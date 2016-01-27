@@ -5,8 +5,9 @@ import AssemblyPages from './AssemblyPages';
 export default class extends Component{
 	render(){
 		return(
-			<Route path='assembly' component={AssemblyPages}>
-			</Route>
+			<div className='AssemblyPages'>
+				{this.props.children}
+			</div>
 			)
 	}
 }
