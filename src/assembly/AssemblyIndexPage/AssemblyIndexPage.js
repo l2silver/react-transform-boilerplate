@@ -3,28 +3,29 @@ import AssembliesTable from './AssembliesTable';
 require('./AssemblyIndexPage.scss')
 
 const assemblies = [{
-	1: 'Assembly 1',
-	2: 'Category 1',
-	3: 'All',
-	4: 10
+	name: 'Assembly 1',
+	category: 'Category 1',
+	visibility: 'All',
+	tests: 10
 },{
-	1: 'Assembly 1',
-	2: 'Category 1',
-	3: 'All',
-	4: 10
-},{
-	1: 'Assembly 1',
-	2: 'Category 1',
-	3: 'All',
-	4: 10
+	name: 'Assembly 1',
+	category: 'Category 1',
+	visibility: 'All',
+	tests: 10
+},{name: 'Assembly 1',
+	category: 'Category 1',
+	visibility: 'All',
+	tests: 10
 }]
+
+const columns = ['name', 'category', 'visibility', 'tests'];
 
 export default class extends Component {
 	render(){
 		return(
 				<section className='AssemblyIndexPage'>
 					<h1>Assembly</h1>
-					<AssembliesTable assemblies={assemblies}/>
+					<AssembliesTable assemblies={assemblies} columns={columns}/>
 				</section>
 			)
 	}
