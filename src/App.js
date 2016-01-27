@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import SignupPage from './user/signup/SignupPage';
 import AssemblyPages from './assembly/AssemblyPages';
-import AssemblyColumnsPages from './assembly/AssemblyColumnsPages/AssemblyColumnsPages';
+import AssemblyCategoriesPages from './assembly/categories/AssemblyCategoriesPages';
+import AssemblyCategoriesIndexPage from './assembly/categories/AssemblyCategoriesIndexPage/AssemblyCategoriesIndexPage';
 
 export class App extends Component {
   render() {
@@ -12,7 +13,8 @@ export class App extends Component {
         <Route path='/' component={Layout}>
           <Route path='signup' component={SignupPage} />
           <Route path='assemblies/' component={AssemblyPages}>
-            <Route path='columns/' component={AssembyColumnsPages}>
+            <Route path='categories/' component={AssemblyCategoriesPages}>
+              <Route path='index' component={AssemblyCategoriesIndexPage} />
             </Route>
           </Route>
         </Route>
