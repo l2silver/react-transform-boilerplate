@@ -4,6 +4,7 @@ import SignupPage from './user/signup/SignupPage';
 import AssemblyPages from './assembly/AssemblyPages';
 import AssemblyCategoriesPages from './assembly/categories/AssemblyCategoriesPages';
 import AssemblyCategoriesCreatePage from './assembly/categories/AssemblyCategoriesCreatePage/AssemblyCategoriesCreatePage';
+import AssemblyCategoriesIndexPage from './assembly/categories/AssemblyCategoriesIndexPage/AssemblyCategoriesIndexPage';
 
 export class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export class App extends Component {
           <Route path='assemblies/' component={AssemblyPages}>
             <Route path='categories/' component={AssemblyCategoriesPages}>
               <Route path='create' component={AssemblyCategoriesCreatePage} />
+              <Route path='index' component={AssemblyCategoriesIndexPage} />
             </Route>
           </Route>
         </Route>
