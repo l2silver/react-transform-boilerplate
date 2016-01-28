@@ -1,7 +1,11 @@
 import {changeInput} from './signup_core.js';
 import {Map} from 'immutable';
 
+
+
 export default function(state = Map(), action){
+	console.log('action', action);
+	console.log('state', state);
 	switch(action.type){
 		case 'INPUT_CHANGE':
 			return changeInput(state, action.attribute, action.value);

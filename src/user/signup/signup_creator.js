@@ -1,3 +1,4 @@
+import { routeActions } from 'react-router-redux'
 import {validateNewUser} from './../user_checkit.js';
 import fetch from './../../node-fetch';
 import Promise from 'bluebird';
@@ -44,13 +45,23 @@ export function changedInput(){
       return createUser(user)
     })
     .then((user)=>{
-      dispatch(validUser(user));
+      return dispatch(validUser(user));
+    })
+    .then(()=>{
+      return dispatch(routeActions.push('/foo'))
     })
     .catch((errors)=>{
       dispatch(invalidUser(errors));
     });
   };
 };
+
+export function testReduxRouter(){
+  return function (dispatch, getState){
+    return dispatch(routeActions.push('/foo'));
+  };
+}
+
 
 /*
 ->GET STATE
