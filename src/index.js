@@ -6,6 +6,7 @@ import {
 	, applyMiddleware
 	} from 'redux';
 import reducers from './reducers.js';
+import {Provider} from 'react-redux';
 
 const createStoreWithMiddleware = applyMiddleware(
 	
@@ -13,6 +14,6 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const store = createStoreWithMiddleware(reducers);
 
-render(
-	<App />, 
-	document.getElementById('root'));
+render(	<Provider store={store}>
+			<App />
+		</Provider>, document.getElementById('root'));
