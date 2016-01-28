@@ -1,3 +1,4 @@
-export default function(state = {}, action){
-	return state;
-}
+import signup from './user/signup/signup_reducer';
+export default {
+	signup
+};

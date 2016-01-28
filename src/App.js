@@ -39,3 +39,6 @@ export class Layout extends Component {
     );
   }
 }
+
+export const history = browserHistory;
+

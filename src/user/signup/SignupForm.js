@@ -1,14 +1,44 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from './signup_creator';
 
-export default class extends Component {
+export class SignupForm extends Component {
+	onChange(event){
+		const attribute = event.target;
+    	this.props.changeInput(attribute.getAttribute('name'), attribute.value);
+  	}
 	render(){
+		
+		const keys = this.props.user.keySeq().toArray();
+	  	const inputs =	keys.map((key)=>{
+	  			let userAttribute = this.props.user.get(key);
+	  			return (<input 
+	  					onChange={this.onChange.bind(this)} 
+	  					type={userAttribute.get('type')} 
+	  					name={userAttribute.get('name')} 
+	  					placeholder={userAttribute.get('placeholder')}
+	  					value={userAttribute.get('value')}></input>
+	  			);
+	  		});
 		return(
 				<form className='SignupForm'>
-					<input className='form-control' type='email' name='email' placeholder='Email' />
-					<input className='form-control' type='password' name='password' placeholder='Password' />
-					<input className='form-control' type='password' name='confirmPassword' placeholder='Confirm Password' />
-					<input className='form-control' type='submit' value='Signup' />
+					{inputs}
+				<button onClick={()=>{this.props.testReduxRouter()}} />
 				</form>
 		);
 	}
 }
+
+
+
+function mapStateToProps(state) {
+  return {
+    user: state.signup.get('user')  
+	};
+}
+
+
+export default connect(
+	mapStateToProps
+	, actionCreators 
+	)(SignupForm);

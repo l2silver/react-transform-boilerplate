@@ -1,3 +1,4 @@
+import { routeActions } from 'react-router-redux'
 import {validateNewUser} from './../user_checkit.js';
 import fetch from './../../node-fetch';
 import Promise from 'bluebird';
@@ -24,20 +25,42 @@ function invalidUser(errors, user) {
   };
 }
 
-export function validateUser(user){
-  return validateNewUser(user)
+function changeUserAttribute(attribute, value){
+ return {
+    type: 'CHANGE_INPUT',
+    attribute,
+    value
+  }; 
 }
 
-export function changeInput(user){
-  return function (dispatch){
-   validateNewUser(user).then((user)=>{
-    return createUser(user)
-   })
-   .then((user)=>{
-    dispatch(validUser(user));
-   })
-   .catch((errors)=>{
-    dispatch(invalidUser(errors, user));
-   }); 
+export function changeInput(field, value){
+  return function (dispatch, getState){
+    dispatch(changeUserAttribute(field, value))
+    validateNewUser(getState().signup.user)
+    .then(()=>{
+      dispatch(validUser(user));
+      dispatch(routeActions.push('/foo'))
+    })
+    .catch((errors)=>{
+      dispatch(invalidUser(errors));
+    });
+  };
+};
+
+export function testReduxRouter(){
+  return function (dispatch, getState){
+    return dispatch(routeActions.push('/signup'));
   };
 }
+
+
+/*
+->GET STATE
+->CHANGE ATTRIBUTE->SET ACTIVE->(When you leave box)
+->VALIDATE USER
+
+User->attributes
+User->errors
+User->active_input
+User->activated_input
+*/
