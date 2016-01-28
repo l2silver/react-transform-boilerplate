@@ -1,5 +1,36 @@
-import {changeInput} from './signup_core.js';
-import {Map} from 'immutable';
+import {
+	changeInput
+} from './signup_core.js';
+import {
+	Map
+	, fromJS
+} from 'immutable';
+
+const initialState = fromJS({
+	user: {
+		email:
+			{
+				  value: null
+				, type: 'email'
+				, name: 'email'
+				, placeholder: 'Email'
+			}
+		, password:
+			{
+				  value: null
+				, type: 'password'
+				, name: 'password'
+				, placeholder: 'Password'
+			}
+		}
+		, confirmPassword:
+			{
+				  value: null
+				, type: 'password'
+				, name: 'confirmPassword'
+				, placeholder: 'Confirm Password'
+			}
+	});
 
 export default function(state = Map(), action){
 	switch(action.type){

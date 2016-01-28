@@ -2,6 +2,8 @@ import {validateNewUser} from './../user_checkit.js';
 import fetch from './../../node-fetch';
 import Promise from 'bluebird';
 import FormData from 'form-data';
+import { routeActions } from 'react-router-redux'
+
 fetch.Promise = Promise;
 
 function createUser(user){
@@ -45,6 +47,9 @@ export function changedInput(){
     })
     .then((user)=>{
       dispatch(validUser(user));
+    })
+    .then(()=>{
+      dispatch(routeActions.push('/home'))
     })
     .catch((errors)=>{
       dispatch(invalidUser(errors));
