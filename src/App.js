@@ -13,3 +13,5 @@ export class App extends Component {
     );
   }
 }
+
+export const history = browserHistory;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { App } from './App';
+import { App 
+	, history
+} from './App';
 import {
 	createStore
 	, applyMiddleware
@@ -8,11 +10,10 @@ import {
 import reducers from './reducers.js';
 import {Provider} from 'react-redux';
 import { syncHistory, routeReducer } from 'react-router-redux'
-import {browserHistory} from 'react-router';
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
 }))
-const reduxRouterMiddleware = syncHistory(browserHistory)
+const reduxRouterMiddleware = syncHistory(history)
 
 const createStoreWithMiddleware = applyMiddleware(
 	reduxRouterMiddleware
