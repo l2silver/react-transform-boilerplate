@@ -3,6 +3,9 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    historyApiFallback: true
+  },
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',

@@ -25,30 +25,21 @@ function invalidUser(errors, user) {
   };
 }
 
-function changeUserAttribute(field, value){
+function changeUserAttribute(attribute, value){
  return {
-    type: 'CHANGE_USER_ATTRIBUTE',
-    field,
+    type: 'CHANGE_INPUT',
+    attribute,
     value
   }; 
 }
 
 export function changeInput(field, value){
-  return function (dispatch){
-    return dispatch(changeUserAttribute(field, value));
-  };
-};
-
-export function changedInput(){
   return function (dispatch, getState){
-    validateNewUser(getState().signup.user).then((user)=>{
-      return createUser(user)
-    })
-    .then((user)=>{
-      return dispatch(validUser(user));
-    })
+    dispatch(changeUserAttribute(field, value))
+    validateNewUser(getState().signup.user)
     .then(()=>{
-      return dispatch(routeActions.push('/foo'))
+      dispatch(validUser(user));
+      dispatch(routeActions.push('/foo'))
     })
     .catch((errors)=>{
       dispatch(invalidUser(errors));
@@ -58,7 +49,7 @@ export function changedInput(){
 
 export function testReduxRouter(){
   return function (dispatch, getState){
-    return dispatch(routeActions.push('/foo'));
+    return dispatch(routeActions.push('/signup'));
   };
 }
 

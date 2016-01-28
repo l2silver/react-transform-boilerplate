@@ -9,25 +9,28 @@ import {
 import {Provider} from 'react-redux';
 import reducers from './reducers';
 import { syncHistory, routeReducer } from 'react-router-redux'
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link} from 'react-router';
+import { createHistory } from 'history'
+
+const history = createHistory();
 import SignupPage from './user/signup/SignupPage';
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
 }))
-console.log(browserHistory);
-//const reduxRouterMiddleware = syncHistory(browserHistory)
+//console.log(browserHistory);
+const reduxRouterMiddleware = syncHistory(history)
 const createStoreWithMiddleware = applyMiddleware(
 	thunk
-//	, reduxRouterMiddleware
+	, reduxRouterMiddleware
 	)(createStore)
 const store = createStoreWithMiddleware(reducer);
-//reduxRouterMiddleware.listenForReplays(store)
+reduxRouterMiddleware.listenForReplays(store)
 
 export class App extends Component {
   render() {
     return (
-       <Router history={browserHistory}>
+       <Router history={history}>
         <Route path="/" component={SignupPage}>
         <Route path="*" component={SignupPage}/>
         </Route>
