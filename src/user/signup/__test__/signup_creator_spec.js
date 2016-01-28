@@ -9,7 +9,7 @@ describe('signup_creator', ()=>{
 	describe('changedInput', ()=>{
 		it('successfully validates user attributes', (done)=>{
 			const user = {
-							email: 'example@example',
+							email: 'example@example.com',
 							password: 'password',
 							confirmPassword: 'password'
 						};
@@ -30,7 +30,7 @@ describe('signup_creator', ()=>{
 			}
 			changedInput()(dispatch, getState);
 		});
-/*
+
 		it('fails to validate user attributes', (done)=>{
 			
 			function getState(){
@@ -50,8 +50,8 @@ describe('signup_creator', ()=>{
 				expect(action.type).to.equal('INVALID_USER');
 				done();
 			}
-			changedInput()(dispatch);
+			changedInput()(dispatch, getState);
 		});
-*/
+
 	});
 });

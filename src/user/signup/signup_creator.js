@@ -39,10 +39,7 @@ export function changeInput(field, value){
 };
 
 export function changedInput(){
-  console.log('insiteChangeInput')
   return function (dispatch, getState){
-    console.log('getState');
-    console.log(getState());
     validateNewUser(getState().signup.user).then((user)=>{
       return createUser(user)
     })
@@ -50,7 +47,7 @@ export function changedInput(){
       dispatch(validUser(user));
     })
     .catch((errors)=>{
-      dispatch(invalidUser(errors, user));
+      dispatch(invalidUser(errors));
     });
   };
 };
