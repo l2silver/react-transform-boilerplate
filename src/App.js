@@ -24,6 +24,7 @@ export class App extends Component {
             <Route path='create' component={AssemblyCreatePage} />
             <Route path='index/:categoryId' component={AssemblyIndexPage} />
           </Route>
+          <Route path='*' component={SignupPage} />
         </Route>
       </Router>
     );
