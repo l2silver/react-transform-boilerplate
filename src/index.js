@@ -13,6 +13,6 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const store = createStoreWithMiddleware(reducers);
 
-render(<Provider store={store}>
-	<App />
-		</Provider>, document.getElementById('root'));
+render(
+	<App />, 
+	document.getElementById('root'));
